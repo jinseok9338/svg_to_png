@@ -1,5 +1,5 @@
 [package]
-name = "leptos_image_new"
+name = "svg_to_png"
 version = "0.1.0"
 edition = "2021"
 
