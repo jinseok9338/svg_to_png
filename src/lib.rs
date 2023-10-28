@@ -57,5 +57,8 @@ mod tests {
         assert_eq!(surface.is_ok(), true);
         let image = make_surface_into_dynamic_image(&mut surface.unwrap());
         assert_eq!(image.is_ok(), true);
+
+        let image = image.unwrap();
+        let _ = image.save("./src/assets/example2.png");
     }
 }

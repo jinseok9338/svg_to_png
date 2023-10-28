@@ -55,8 +55,17 @@ pub fn make_surface_into_dynamic_image(
 
     // Create a new buffer and copy the pixel data into it
     let mut buffer = Vec::with_capacity(surface_data.len());
-    buffer.extend_from_slice(&surface_data);
+
+    for chunk in surface_data.chunks_exact(4) {
+        let b = chunk[0];
+        let g = chunk[1];
+        let r = chunk[2];
+        let a = chunk[3];
+        buffer.extend_from_slice(&[r, g, b, a]);
+    }
     let data = image::RgbaImage::from_raw(width, height, buffer).expect("Error while making image");
 
-    Ok(image::DynamicImage::ImageRgba8(data))
+    let image = image::DynamicImage::ImageRgba8(data);
+
+    Ok(image)
 }
