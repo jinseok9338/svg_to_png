@@ -37,7 +37,7 @@ mod tests {
     }
 
     #[test]
-    fn test_make_handle_for_svg() {
+    fn test_change_svg_to_png() {
         let handler = get_svg_handler(Path::new(TEST_FILE_PATH));
         assert_eq!(handler.is_ok(), true);
         let handler = handler.unwrap();
