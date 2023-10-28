@@ -25,13 +25,38 @@ pub fn render_image(
     Ok(surface)
 }
 
-pub fn save_to_path(path: &Path, surface: &ImageSurface) {
+pub fn save_png_to_path(path: &Path, surface: &ImageSurface) -> Result<(), RenderError> {
     let file = File::create(path);
 
     let mut file = match file {
         Ok(file) => file,
-        Err(_) => return,
+        Err(_) => {
+            return Err(RenderError::FileSaveError(std::io::Error::new(
+                std::io::ErrorKind::Other,
+                "Error while saving file",
+            )))
+        }
     };
 
     let _result = surface.write_to_png(&mut file);
+    Ok(())
+}
+
+pub fn make_surface_into_dynamic_image(
+    surface: &mut ImageSurface,
+) -> Result<image::DynamicImage, RenderError> {
+    let width = surface.get_width() as u32;
+    let height = surface.get_height() as u32;
+
+    // Get the pixel data from the ImageSurface
+    let surface_data = surface
+        .get_data()
+        .map_err(|_| RenderError::CairoError(cairo::Status::SurfaceFinished))?;
+
+    // Create a new buffer and copy the pixel data into it
+    let mut buffer = Vec::with_capacity(surface_data.len());
+    buffer.extend_from_slice(&surface_data);
+    let data = image::RgbaImage::from_raw(width, height, buffer).expect("Error while making image");
+
+    Ok(image::DynamicImage::ImageRgba8(data))
 }

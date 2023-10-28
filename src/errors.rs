@@ -29,6 +29,8 @@ impl fmt::Display for SVGError {
 pub enum RenderError {
     CairoError(cairo::Status),
     SVGError(SVGError),
+    FileSaveError(std::io::Error),
+    ImageError(image::ImageError),
 }
 
 impl Error for RenderError {}
@@ -38,6 +40,14 @@ impl fmt::Display for RenderError {
         match self {
             RenderError::CairoError(e) => write!(f, "This is cairo error: {:?}", e),
             RenderError::SVGError(e) => write!(f, "This is svg error: {}", e),
+            RenderError::FileSaveError(e) => {
+                write!(f, "Error happend while saving PNG file: {}", e)
+            }
+            RenderError::ImageError(e) => write!(
+                f,
+                "This is Error from while making into Dynamic Image: {}",
+                e
+            ),
         }
     }
 }

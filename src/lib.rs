@@ -11,21 +11,29 @@ mod tests {
     use std::path::Path;
 
     use crate::{
-        render::{render_image, save_to_path},
+        render::{make_surface_into_dynamic_image, render_image, save_png_to_path},
         svgs::get_svg_handler,
     };
 
     use super::*;
 
+    /// Test for valid extension
+    /// This test should return SVG file type
     #[test]
     fn test_valid_svg_extension() {
         let file_path = Path::new(TEST_FILE_PATH);
         let file_type = svgs::check_svg(file_path);
 
-        assert_eq!(file_type.is_ok(), true);
+        assert_eq!(file_type, true);
+    }
 
-        let file_type = file_type.unwrap();
-        assert_eq!(file_type, svgs::FileType::SVG);
+    /// Test for valid extension
+    /// This test should return SVG file type
+    #[test]
+    fn test_invalid_svg_extension() {
+        let file_path = Path::new("./src/assets/example.png");
+        let file_type = svgs::check_svg(file_path);
+        assert_eq!(file_type, false);
     }
 
     #[test]
@@ -37,6 +45,17 @@ mod tests {
         let surface = render_image(handler.width, handler.height, handler.handle, None);
         assert_eq!(surface.is_ok(), true);
         println!("{:?}", surface);
-        save_to_path(&Path::new("./src/assets/example.png"), &surface.unwrap());
+        let _ = save_png_to_path(&Path::new("./src/assets/example.png"), &surface.unwrap());
+    }
+
+    #[test]
+    fn test_make_dynamic_image() {
+        let handler = get_svg_handler(Path::new(TEST_FILE_PATH));
+        assert_eq!(handler.is_ok(), true);
+        let handler = handler.unwrap();
+        let surface = render_image(handler.width, handler.height, handler.handle, None);
+        assert_eq!(surface.is_ok(), true);
+        let image = make_surface_into_dynamic_image(&mut surface.unwrap());
+        assert_eq!(image.is_ok(), true);
     }
 }

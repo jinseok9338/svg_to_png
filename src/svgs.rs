@@ -29,15 +29,20 @@ fn string_to_file_type(input: &str) -> Result<FileType, SVGError> {
     }
 }
 
-pub fn check_svg(path: &Path) -> Result<FileType, SVGError> {
+pub fn check_svg(path: &Path) -> bool {
     let ext_string = path.extension();
     let ext_string = match ext_string {
         Some(ext) => ext.to_str().expect("Invalid extension"),
-        None => return Err(SVGError::InvalidSVG),
+        None => return false,
     };
 
     let ext = string_to_file_type(ext_string);
-    Ok(ext?)
+
+    if ext.is_err() || ext.unwrap() != FileType::SVG {
+        return false;
+    }
+
+    return true;
 }
 
 pub fn get_svg_handler(path: &Path) -> Result<SVGHandler, SVGError> {
