@@ -30,12 +30,7 @@ pub fn save_png_to_path(path: &Path, surface: &ImageSurface) -> Result<(), Rende
 
     let mut file = match file {
         Ok(file) => file,
-        Err(_) => {
-            return Err(RenderError::FileSaveError(std::io::Error::new(
-                std::io::ErrorKind::Other,
-                "Error while saving file",
-            )))
-        }
+        Err(error) => return Err(RenderError::FileSaveError(error)),
     };
 
     let _result = surface.write_to_png(&mut file);
