@@ -7,10 +7,11 @@ This repository was created to convert SVG files to PNG or to create a Dynamic I
 image = { version = "0.24.7"}
 rsvg = "0.4.0"
 cairo-rs = "0.4.1"
-You must use version 0.4.1 or higher of cairo-rs. This is because the version of cairo-rs used in rsvg is 0.4.1, and if the version changes, the type changes, which can cause problems.
 ```
 
-How to use
+You must use version 0.4.1 or higher of cairo-rs. This is because the version of cairo-rs used in rsvg is 0.4.1, and if the version changes, the type changes, which can cause problems.
+
+## How to use
 
 https://github.com/jinseok9338/svg_to_png/assets/27854958/e2e3451e-8d92-43e1-8f15-aee097afca34
 
