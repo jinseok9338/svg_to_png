@@ -1,3 +1,5 @@
+
+https://github.com/jinseok9338/svg_to_png/assets/27854958/5ec66bf3-2447-4ca0-bd6e-16e19df05922
 # SVG to PNG
 이 리포는 svg 파일을 png 로 바꾸어 저장 하거나 [image crate](https://docs.rs/image/latest/image) 에 호환되는 Dynamic Image 타입을 만들기 위해서 생성한 리포 입니다. 
 
@@ -22,9 +24,16 @@ cairo-rs 의 버전은 0.4.1 버전이상을 사용해야 합니다. 이는 rsvg
 
 ## 사용방법
 
-[xxo3uv.mp4](https://prod-files-secure.s3.us-west-2.amazonaws.com/f8946ed6-a165-4d24-aa14-f1a41b8575d6/05417f50-82a4-4fa2-9a39-a1c900f58429/xxo3uv.mp4)
+
+
+
+https://github.com/jinseok9338/svg_to_png/assets/27854958/e2e3451e-8d92-43e1-8f15-aee097afca34
+
+
+[xxo3uv.mp4]([https://github.com/jinseok9338/svg_to_png/assets/27854958/e2e3451e-8d92-43e1-8f15-aee097afca34])
 
 ```rust
+
 let handler = get_svg_handler(Path::new(TEST_FILE_PATH));
         assert_eq!(handler.is_ok(), true);
         let handler = handler.unwrap();
