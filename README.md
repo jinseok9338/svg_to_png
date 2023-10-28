@@ -1,5 +1,3 @@
-
-https://github.com/jinseok9338/svg_to_png/assets/27854958/5ec66bf3-2447-4ca0-bd6e-16e19df05922
 # SVG to PNG
 이 리포는 svg 파일을 png 로 바꾸어 저장 하거나 [image crate](https://docs.rs/image/latest/image) 에 호환되는 Dynamic Image 타입을 만들기 위해서 생성한 리포 입니다. 
 
