@@ -1,5 +1,5 @@
 # SVG to PNG
-This repository was created to convert SVG files to PNG or to create a Dynamic Image type compatible with the image crate.
+This repository was created to convert SVG files to PNG or to create a Dynamic Image type compatible with the [image crate](https://docs.rs/image/latest/image).
 
 ## Dependency
 ```
@@ -11,6 +11,7 @@ You must use version 0.4.1 or higher of cairo-rs. This is because the version of
 ```
 
 How to use
+
 https://github.com/jinseok9338/svg_to_png/assets/27854958/e2e3451e-8d92-43e1-8f15-aee097afca34
 
 
