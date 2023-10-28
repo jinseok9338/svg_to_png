@@ -19,9 +19,6 @@ cairo-rs 의 버전은 0.4.1 버전이상을 사용해야 합니다. 이는 rsvg
 
 https://github.com/jinseok9338/svg_to_png/assets/27854958/e2e3451e-8d92-43e1-8f15-aee097afca34
 
-
-[xxo3uv.mp4]([https://github.com/jinseok9338/svg_to_png/assets/27854958/e2e3451e-8d92-43e1-8f15-aee097afca34])
-
 ```rust
 
 let handler = get_svg_handler(Path::new(TEST_FILE_PATH));
