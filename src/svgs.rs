@@ -42,7 +42,7 @@ pub fn check_svg(path: &Path) -> bool {
         return false;
     }
 
-    return true;
+    true
 }
 
 pub fn get_svg_handler(path: &Path) -> Result<SVGHandler, SVGError> {
