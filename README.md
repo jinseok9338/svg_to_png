@@ -5,17 +5,9 @@
 
 ```rust
 [dependencies]
-usvg = "0.36.0"
 image = { version = "0.24.7"}
-serde = { version = "1.0.189", features = ["derive"] }
-serde_qs = "0.12.0"
-log = { version = "0.4.20" }
 rsvg = "0.4.0"
 cairo-rs = "0.4.1"
-
-[dependencies.nsvg]
-version = "0.5.1"
-default-features = false
 ```
 
 cairo-rs 의 버전은 0.4.1 버전이상을 사용해야 합니다. 이는 rsvg 에서 사용하는 cairo-rs 버전이 0.4.1 이라 버전이 바뀌면 타입이 변하기 때문에 문제가 됩니다. 
