@@ -46,3 +46,7 @@ let handler = get_svg_handler(Path::new(TEST_FILE_PATH));
 ```
 
 혹은 make_surface_into_dynamic_image 를 호출 하여서 DynamicImage 타입을 만들 수도 있다. → 이후  image crate 를 이용하여 webp 혹은 이미지 리사이징 등을 진행 할 수 있다.
+
+추가 테스트
+여러가지 svg 파일을 테스트 해보았습니다. (2023/10/29) -> 애니메이션은 동작하지 않습니다.
+webp 파일로 변환을 테스트 해보았습니다. (2023/10/29)
