@@ -38,3 +38,7 @@ let handler = get_svg_handler(Path::new(TEST_FILE_PATH));
         assert_eq!(image.is_ok(), true);
 ```
 Or you can call make_surface_into_dynamic_image to create a DynamicImage type. → After this, you can use the image crate to proceed with webp or image resizing.
+
+1. Tested Multiple svg files for stability
+2. Tested to see if it can be converted into webp
+
