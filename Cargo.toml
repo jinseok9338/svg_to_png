@@ -2,7 +2,11 @@
 name = "svg_to_png"
 version = "0.1.0"
 edition = "2021"
-
+exclude = ["src/assets/*"]
+description = "Converts SVG to PNG and dynamic Image"
+license = "MIT"
+repository = "https://github.com/jinseok9338/svg_to_png"
+readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
@@ -10,5 +14,7 @@ image = { version = "0.24.7"}
 rsvg = "0.4.0"
 cairo-rs = "0.4.1"
 webp = "0.2.6"
+
+
 
 
