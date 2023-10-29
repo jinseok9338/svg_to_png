@@ -6,7 +6,7 @@ exclude = ["src/assets/*"]
 description = "Converts SVG to PNG and dynamic Image"
 license = "MIT"
 repository = "https://github.com/jinseok9338/svg_to_png"
-readme = "README.md"
+readme = "ReadMe_English.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
