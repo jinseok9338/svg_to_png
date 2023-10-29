@@ -9,5 +9,6 @@ edition = "2021"
 image = { version = "0.24.7"}
 rsvg = "0.4.0"
 cairo-rs = "0.4.1"
+webp = "0.2.6"
 
 

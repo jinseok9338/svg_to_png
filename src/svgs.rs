@@ -70,3 +70,31 @@ pub fn get_svg_handler(path: &Path) -> Result<SVGHandler, SVGError> {
         height: dimensions.height,
     })
 }
+
+#[cfg(test)]
+mod tests {
+    const TEST_FILES_PATH: &str = "./src/assets/test_files";
+
+    use std::path::Path;
+
+    use super::*;
+
+    #[test]
+    fn test_get_svg_handler() {
+        let files_dir = Path::new(TEST_FILES_PATH);
+        let files = files_dir.read_dir().unwrap();
+        for file in files {
+            let file = file.unwrap();
+            let path = file.path();
+            println!("{:?}", path);
+            // if path extension is not svg ignore
+            if !check_svg(&path) {
+                continue;
+            }
+            let handler = get_svg_handler(&path);
+            assert_eq!(handler.is_ok(), true);
+            let handler = handler.unwrap();
+            println!("{:?}", handler);
+        }
+    }
+}

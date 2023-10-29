@@ -17,9 +17,10 @@ pub fn render_image(
         Err(_) => return Err(RenderError::CairoError(cairo::Status::SurfaceFinished)),
     };
     let context = Context::new(&surface);
-
-    let background = background.unwrap_or((1.0, 1.0, 1.0, 1.0));
+    // default is transparent and black.
+    let background = background.unwrap_or((0.0, 0.0, 0.0, 0.0));
     context.set_source_rgba(background.0, background.1, background.2, background.3);
+
     context.paint();
     let _result = handle.render_cairo(&context);
     Ok(surface)
