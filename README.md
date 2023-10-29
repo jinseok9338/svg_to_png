@@ -11,8 +11,10 @@ image = { version = "0.24.7"}
 rsvg = "0.4.0"
 cairo-rs = "0.4.1"
 ```
-
+## 주의 사항
 cairo-rs 의 버전은 0.4.1 버전이상을 사용해야 합니다. 이는 rsvg 에서 사용하는 cairo-rs 버전이 0.4.1 이라 버전이 바뀌면 타입이 변하기 때문에 문제가 됩니다. 
+또한 rsvg 가 다음의 라이브러리에 의존적이니 다음의 패키지를 꼭 설치해 주세요
+`sudo apt-get install libcairo2-dev libpango1.0-dev libatk-bridge2.0 libgtk-3-dev`
 
 ## 사용방법
 
