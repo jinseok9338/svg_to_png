@@ -1,5 +1,7 @@
 use std::error::Error;
 use std::fmt;
+use std::num::ParseFloatError;
+use xmltree::ParseError;
 
 // Define a custom error enum
 #[derive(Debug)]
@@ -8,6 +10,8 @@ pub enum SVGError {
     InvalidSVG,       // this is for not valid svg
     RSVGError(rsvg::Error),
     InvalidPath,
+    ParseError(ParseError),
+    ParseError2(ParseFloatError),
 }
 
 // Implement the Error trait for the custom error enum
@@ -21,6 +25,8 @@ impl fmt::Display for SVGError {
             SVGError::InvalidExtension => write!(f, "This is invlid extension use .svg"),
             SVGError::RSVGError(e) => write!(f, "This is rsvg error: {}", e),
             SVGError::InvalidPath => write!(f, "This is invalid path"),
+            SVGError::ParseError(e) => write!(f, "This is parse error: {}", e),
+            SVGError::ParseError2(e) => write!(f, "This is parse error: {}", e),
         }
     }
 }
