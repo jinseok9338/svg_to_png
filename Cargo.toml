@@ -7,6 +7,8 @@ description = "Converts SVG to PNG and dynamic Image"
 license = "MIT"
 repository = "https://github.com/jinseok9338/svg_to_png"
 readme = "ReadMe_English.md"
+keywords = ["svg", "png", "image", "convert", "dynamic"]
+categories = ["image", "convert", "dynamic"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
@@ -14,6 +16,7 @@ image = { version = "0.24.7"}
 rsvg = "0.4.0"
 cairo-rs = "0.4.1"
 webp = "0.2.6"
+xmltree = "0.10.3"
 
 
 

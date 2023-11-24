@@ -15,7 +15,7 @@ mod tests {
 
     use crate::{
         render::{make_surface_into_dynamic_image, render_image, save_png_to_path},
-        svgs::{check_svg, get_svg_handler},
+        svgs::{check_svg, get_scaled_svg_handler, get_svg_handler},
     };
 
     use super::*;
@@ -49,6 +49,21 @@ mod tests {
         assert_eq!(surface.is_ok(), true);
         println!("{:?}", surface);
         let _ = save_png_to_path(&Path::new("./src/assets/example.png"), &surface.unwrap());
+    }
+
+    #[test]
+    fn test_scale_svg() {
+        let handler = get_scaled_svg_handler(Path::new(TEST_FILE_PATH), 2.0);
+        assert_eq!(handler.is_ok(), true);
+        let handler = handler.unwrap();
+        println!("{:?}", handler);
+        let surface = render_image(handler.width, handler.height, handler.handle, None);
+        assert_eq!(surface.is_ok(), true);
+        println!("{:?}", surface);
+        let _ = save_png_to_path(
+            &Path::new("./src/assets/example_with_scaled.png"),
+            &surface.unwrap(),
+        );
     }
 
     #[test]
